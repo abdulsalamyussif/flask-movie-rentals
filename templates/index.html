@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block main %}
+
+<h1>Abdul Salam</h1>
+
+<hr />
+<div>
+  <span>Action</span>
+  &verbar;
+  <form action="/new-movie" class="d-inline" method="GET">
+    <input type="submit" value="new movie" class="btn btn-success btn-sm" />
+  </form>
+
+  <form action="/search" method="POST" class="d-inline form-inline">
+    <input placeholder="search a movie by title" type="text" name="q" id="" />
+  </form>
+</div>
+<hr />
+
+<table class="table table-hover">
+  <thead>
+    <th>#</th>
+    <th>title</th>
+    <th>release year</th>
+    <th>budget</th>
+    <th>cast</th>
+  </thead>
+  <tbody>
+    {% for m in movies %}
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{m.title}}</td>
+      <td>{{m.year}}</td>
+      <td>{{m.budget}}</td>
+      <td>{{m.cast}}</td>
+    </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
